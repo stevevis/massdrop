@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+  return View::make('hello');
 });
 
 Route::get('/authtest', array('before' => 'auth.basic', function()
@@ -25,8 +25,8 @@ Route::get('/authtest', array('before' => 'auth.basic', function()
 Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 {
     Route::resource('item', 'ItemController');
-		Route::resource('set', 'SetController');
+    Route::resource('set', 'SetController');
 
-		Route::put('set/{setId}/item/{itemId}', 'SetController@addItem');
-		Route::delete('set/{setId}/item/{itemId}', 'SetController@removeItem');
+    Route::put('set/{setId}/item/{itemId}', 'SetController@addItem');
+    Route::delete('set/{setId}/item/{itemId}', 'SetController@removeItem');
 });
