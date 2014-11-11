@@ -1,0 +1,94 @@
++--------------------------------------------------------------------------------
+| Create an item
+
+curl -i --user a@aa.com:a1\! -H "Content-Type: application/json" -X POST -d '{"name":"Smart 68 Keyboard", "image_url":"https://d2qmzng4l690lq.cloudfront.net/resizer/450x450/v/CMUQFY_20140829_210623_OI951.png"}' 54.172.33.228/api/v1/item
+
++--------------------------------------------------------------------------------
+| Delete an item
+
+curl -i --user a@aa.com:a1\! -X DELETE 54.172.33.228/api/v1/item/4
+
++--------------------------------------------------------------------------------
+| Update an item image
+
+curl -i --user b@bb.com:b2\@ -H "Content-Type: application/json" -X PUT -d '{"image_url":"https://d2qmzng4l690lq.cloudfront.net/resizer/450x450/v/CMUQFY_20140829_211141_TUZBO.png"}' 54.172.33.228/api/v1/item/5
+
++----------------------------------------------------------------------------------
+| Get item with ID 1
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/item/1 | python -m json.tool
+
++--------------------------------------------------------------------------------
+| Get all items with "FiiO" in name
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/item\?name=FiiO | python -m json.tool
+
++----------------------------------------------------------------------------------
+| Get all items created by user 1
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/item\?user_id=1 | python -m json.tool
+
++--------------------------------------------------------------------------------
+| Get last 2 items created by user 1
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/item\?user_id=1\&last=2 | python -m json.tool
+
++--------------------------------------------------------------------------------
+| Get first 2 items created by user 1
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/item\?user_id=1\&first=2 | python -m json.tool
+
++--------------------------------------------------------------------------------
+| Create a set with one item
+
+curl -i --user a@aa.com:a1\! -H "Content-Type: application/json" -X POST -d '{"name":"My Gaming Setup", "description":"This is my awesome rig.", "image_url":"https://d2qmzng4l690lq.cloudfront.net/resizer/3000x2000/r/MD-3143_20140724105155_183c6a436e969bd2.jpg", "items":[5]}' 54.172.33.228/api/v1/set
+
++--------------------------------------------------------------------------------
+| Delete a set
+
+curl -i --user a@aa.com:a1\! -X DELETE 54.172.33.228/api/v1/set/2
+
++--------------------------------------------------------------------------------
+| Update the items in a set
+
+curl -i --user a@aa.com:a1\! -H "Content-Type: application/json" -X PUT -d '{"items":[1,2]}' 54.172.33.228/api/v1/set/2
+
++----------------------------------------------------------------------------------
+| Add item 1 to set 1
+
+curl -i --user a@aa.com:a1\! -X PUT 54.172.33.228/api/v1/set/1/item/1
+
++----------------------------------------------------------------------------------
+| Delete item 1 from set 1
+
+curl -i --user a@aa.com:a1\! -X DELETE 54.172.33.228/api/v1/set/1/item/1
+
++--------------------------------------------------------------------------------
+| Update a set image
+
+curl -i --user a@aa.com:a1\! -H "Content-Type: application/json" -X PUT -d '{"image_url":"https://d2qmzng4l690lq.cloudfront.net/resizer/450x450/v/M9RL4E_20140524_170515_626C59C20D5D1E292A.png"}' 54.172.33.228/api/v1/set/2
+
++--------------------------------------------------------------------------------
+| Update a set description
+
+curl -i --user a@aa.com:a1\! -H "Content-Type: application/json" -X PUT -d '{"description":"New description"}' 54.172.33.228/api/v1/set/2
+
++----------------------------------------------------------------------------------
+| Get set with ID 2
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/set/2 | python -m json.tool
+
++----------------------------------------------------------------------------------
+| Get all sets created by user 1
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/set\?user_id=1 | python -m json.tool
+
++----------------------------------------------------------------------------------
+| Get all sets containing items 1 or 2
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/set\?contains_any=1,2 | python -m json.tool
+
++----------------------------------------------------------------------------------
+| Get all sets containing items 1 and 2
+
+curl -s --user a@aa.com:a1\! 54.172.33.228/api/v1/set\?contains_all=1,2 | python -m json.tool

@@ -52,12 +52,22 @@ return array(
 			'prefix'   => '',
 		),
 
+		/*
+		|--------------------------------------------------------------------------
+		| MySQL Socket
+		|--------------------------------------------------------------------------
+
+		| Laravel looks for a MySQL socket at /tmp/mysql.sock
+		| If you're using MAMP run sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock /tmp/mysql.sock
+		|
+		*/
+
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
+			'database'  => 'massdrop',
+			'username'  => 'massdrop',
+			'password'  => 'massdrop',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
