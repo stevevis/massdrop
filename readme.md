@@ -1,4 +1,4 @@
-## Massdrop Problem Set - Full-Stack Engineer
+## Problem Set - Full-Stack Engineer
 
 The goal here will be to design and build a RESTful JSON API in PHP that allows authenticated users to create, modify, and retrieve sets of items over HTTP. Data should be persisted in a MySQL database. You may use any resources or libraries you wish.
 
